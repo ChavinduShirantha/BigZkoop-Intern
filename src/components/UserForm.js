@@ -42,7 +42,7 @@ const UserForm = () => {
             <Container>
                 <h1 style={{textAlign:"center"}}>User Registration Form</h1>
                 <InputLabel htmlFor="uId"> ID</InputLabel>
-                <Input id="uId" value={user.id} placeholder="User ID will generated auto" fullWidth disabled style={{marginBottom:10}}/>
+                <Input id="uId" value={user.id} placeholder="User ID will generated auto" fullWidth style={{marginBottom:10}} disabled/>
                 <InputLabel htmlFor="uName"> Name</InputLabel>
                 <Input id="uName" onChange={handleChange('name')} placeholder="Enter Name" value={user.name} fullWidth style={{marginBottom:10}}/>
                 <InputLabel htmlFor="uEmail"> Email</InputLabel>
