@@ -2,7 +2,7 @@ import {configureStore} from "@reduxjs/toolkit";
 import user from "./redux/slice/user";
 import users from "./redux/slice/users";
 import createSagaMiddleware from 'redux-saga'
-import {rootSaga} from "./redux/sagas/types";
+import {rootSaga} from "./redux/sagas";
 
 const sagaMiddleware = createSagaMiddleware()
 
