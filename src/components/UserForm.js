@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {setUserSlice} from "../redux/slice/user";
 import {addUserSlice, editUserSlice} from "../redux/slice/users";
 import {nanoid} from "@reduxjs/toolkit";
-import {CREATE_USER} from "../redux/types";
+import {CREATE_USER, UPDATE_USER_BY_ID} from "../redux/types";
 
 const UserForm = () => {
     /*const [user, setUser] = useState({
@@ -23,7 +23,7 @@ const UserForm = () => {
 
     const handleSubmit = () => {
         // user.id === 0 ? dispatch(addUserSlice({...user,id:nanoid(8)})):dispatch(editUserSlice)
-        user.id === 0 ? dispatch({type: CREATE_USER, user: {...user, id: nanoid(8)}}) : dispatch(editUserSlice)
+        user.id === 0 ? dispatch({type: CREATE_USER, user: {...user, id: nanoid(8)}}) : dispatch({type: UPDATE_USER_BY_ID, user})
         dispatch(setUserSlice({
             id: 0,
             name: '',

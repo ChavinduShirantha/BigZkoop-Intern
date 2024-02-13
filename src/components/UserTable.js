@@ -6,14 +6,14 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import {useDispatch, useSelector} from "react-redux";
 import {Button} from "@mui/material";
 import {setUserSlice} from "../redux/slice/user";
-import {deleteUserSlice} from "../redux/slice/users";
-
+import {DELETE_USER_BY_ID, GET_USERS} from "../redux/types";
+import { useDispatch, useSelector } from 'react-redux';
 export default function UserTable() {
     const rows = useSelector(state => state.users)
     const dispatch = useDispatch()
+    React.useEffect(() => dispatch({ type: GET_USERS }), [])
     return (
         <TableContainer component={Paper}>
             <Table sx={{minWidth: 650}} aria-label="simple table">
@@ -42,7 +42,7 @@ export default function UserTable() {
                                         variant="contained">Edit</Button>
                             </TableCell>
                             <TableCell align="right">
-                                <Button onClick={() => dispatch(deleteUserSlice(row.id))} fullWidth
+                                <Button onClick={() => dispatch({type: DELETE_USER_BY_ID, id: row.id})} fullWidth
                                         variant="contained">Delete</Button>
                             </TableCell>
                         </TableRow>

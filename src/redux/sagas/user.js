@@ -4,35 +4,35 @@ import {addUserSlice, deleteUserSlice, editUserSlice, getUsersSlice} from "../sl
 import {setUserSlice} from "../slice/user";
 import {CREATE_USER, DELETE_USER_BY_ID, GET_USER_BY_ID, GET_USERS, UPDATE_USER_BY_ID} from "../types";
 
-export const getUsersSaga = () => {
+export function* getUsersSaga(){
     const users = yield getUsersAPI()
-    yield put(getUsersSlice(users))
+    yield put(getUsersSlice(users.data))
 }
 
-export const getUserByIdSaga = (id) => {
-    const user = yield getUserByIdAPI(id)
-    yield put(setUserSlice(user))
+export function* getUserByIdSaga(action){
+    yield getUserByIdAPI(action.id)
+    yield put(setUserSlice(action.id))
 }
 
-export const createUserSaga = (user) => {
-    const user = yield createUserAPI(user)
-    yield put(addUserSlice(user))
+export function* createUserSaga(action) {
+    yield createUserAPI(action.user)
+    yield put(addUserSlice(action.user))
 }
 
-export const updateUserSaga = (user) => {
-    const user = yield updateUserAPI(user)
-    yield put(editUserSlice(user))
+export function* updateUserSaga(action) {
+    yield updateUserAPI(action.user)
+    yield put(editUserSlice(action.user))
 }
 
-export const deleteUserByIdSaga = (id) => {
-    const user = yield deleteUserByIdAPI(id)
-    yield put(deleteUserSlice(user))
+export function* deleteUserByIdSaga(action){
+    yield deleteUserByIdAPI(action.id)
+    yield put(deleteUserSlice(action.id))
 }
 
-export const watchUsersAsync = () => {
-    yield takeEvery(GET_USERS, getUsersSaga())
-    yield takeEvery(GET_USER_BY_ID, getUserByIdSaga())
-    yield takeEvery(CREATE_USER, createUserSaga())
-    yield takeEvery(UPDATE_USER_BY_ID, updateUserSaga())
-    yield takeEvery(DELETE_USER_BY_ID, deleteUserByIdSaga())
+export function* watchUsersAsync(){
+    yield takeEvery(GET_USERS, getUsersSaga)
+    yield takeEvery(GET_USER_BY_ID, getUserByIdSaga)
+    yield takeEvery(CREATE_USER, createUserSaga)
+    yield takeEvery(UPDATE_USER_BY_ID, updateUserSaga)
+    yield takeEvery(DELETE_USER_BY_ID, deleteUserByIdSaga)
 }
