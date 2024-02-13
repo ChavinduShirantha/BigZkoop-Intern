@@ -1,7 +1,8 @@
 import {Button, Container, Input} from "@mui/material";
-import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {setUserSlice} from "../redux/slice/user";
+import {addUserSlice, editUserSlice} from "../redux/slice/users";
+import {nanoid} from "@reduxjs/toolkit";
 
 const UserForm = () => {
     /*const [user, setUser] = useState({
@@ -20,7 +21,13 @@ const UserForm = () => {
     }
 
     const handleSubmit=()=>{
-
+        user.id === 0 ? dispatch(addUserSlice({...user,id:nanoid(8)})):dispatch(editUserSlice)
+        dispatch(setUserSlice({
+            id: 0,
+            name: '',
+            email: '',
+            password: ''
+        }))
     }
 
     return (

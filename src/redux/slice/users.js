@@ -13,7 +13,7 @@ const users = createSlice({
             return state
         },
         addUserSlice: (state, action) => {
-            state = state.push(action.payload)
+            state.push(action.payload)
             return state
         },
         editUserSlice: (state, action) => {
