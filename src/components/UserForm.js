@@ -1,16 +1,26 @@
 import {Button, Container, Input} from "@mui/material";
 import {useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {setUserSlice} from "../redux/slice/user";
 
 const UserForm = () => {
-    const [user, setUser] = useState({
+    /*const [user, setUser] = useState({
         id: 0,
         name: '',
         email: '',
         password: ''
-    });
+    });*/
+
+    const user=useSelector(state => state.user)
+
+    const dispatch=useDispatch()
 
     const handleChange = (prop) => (event) => {
-        setUser({...user, [prop]: event.target.value})
+        dispatch(setUserSlice({...user, [prop]: event.target.value}))
+    }
+
+    const handleSubmit=()=>{
+
     }
 
     return (
@@ -21,7 +31,7 @@ const UserForm = () => {
                 <Input onChange={handleChange('email')} placeholder="Enter Email" value={user.email} fullWidth/>
                 <Input onChange={handleChange('password')} placeholder="Enter Password" value={user.password}
                        fullWidth/>
-                <Button fullWidth variant="contained">Submit</Button>
+                <Button onClick={()=>handleSubmit()} fullWidth variant="contained">Submit</Button>
             </Container>
         </>
     );
