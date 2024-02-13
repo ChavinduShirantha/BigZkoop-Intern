@@ -10,6 +10,9 @@ import {Button} from "@mui/material";
 import {setUserSlice} from "../redux/slice/user";
 import {DELETE_USER_BY_ID, GET_USERS} from "../redux/types";
 import { useDispatch, useSelector } from 'react-redux';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+
 export default function UserTable() {
     const rows = useSelector(state => state.users)
     const dispatch = useDispatch()
@@ -19,11 +22,12 @@ export default function UserTable() {
             <Table sx={{minWidth: 650}} aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <TableCell>Name</TableCell>
-                        <TableCell align="right">Email</TableCell>
-                        <TableCell align="right">Password</TableCell>
-                        <TableCell align="right">Edit</TableCell>
-                        <TableCell align="right">Delete</TableCell>
+                        <TableCell align="center">ID</TableCell>
+                        <TableCell align="center">Name</TableCell>
+                        <TableCell align="center">Email</TableCell>
+                        <TableCell align="center">Password</TableCell>
+                        <TableCell align="center">Edit</TableCell>
+                        <TableCell align="center">Delete</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -32,18 +36,21 @@ export default function UserTable() {
                             key={row.id}
                             sx={{'&:last-child td, &:last-child th': {border: 0}}}
                         >
-                            <TableCell component="th" scope="row">
+                            <TableCell component="th" scope="row" align="center">
+                                {row.id}
+                            </TableCell>
+                            <TableCell component="th" scope="row" align="center">
                                 {row.name}
                             </TableCell>
-                            <TableCell align="right">{row.email}</TableCell>
-                            <TableCell align="right">{row.password}</TableCell>
-                            <TableCell align="right">
-                                <Button onClick={() => dispatch(setUserSlice(row))} fullWidth
-                                        variant="contained">Edit</Button>
+                            <TableCell align="center">{row.email}</TableCell>
+                            <TableCell align="center">{row.password}</TableCell>
+                            <TableCell align="center">
+                                <Button onClick={() => dispatch(setUserSlice(row))}
+                                        variant="contained" startIcon={<EditIcon />}>Edit</Button>
                             </TableCell>
-                            <TableCell align="right">
-                                <Button onClick={() => dispatch({type: DELETE_USER_BY_ID, id: row.id})} fullWidth
-                                        variant="contained">Delete</Button>
+                            <TableCell align="center">
+                                <Button onClick={() => dispatch({type: DELETE_USER_BY_ID, id: row.id})}
+                                        variant="contained" color="error" startIcon={<DeleteIcon />}>Delete</Button>
                             </TableCell>
                         </TableRow>
                     ))}
