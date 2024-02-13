@@ -30,7 +30,7 @@ const UserForm = () => {
             user: {...user, id: nanoid(4)}
         }) : dispatch({type: UPDATE_USER_BY_ID, user})
         dispatch(setUserSlice({
-            id: '',
+            id: 0,
             name: '',
             email: '',
             password: ''
