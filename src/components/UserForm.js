@@ -25,12 +25,12 @@ const UserForm = () => {
 
     const handleSubmit = () => {
         // user.id === 0 ? dispatch(addUserSlice({...user,id:nanoid(8)})):dispatch(editUserSlice)
-        user.id === 0 ? dispatch({
+        user.id !== null ? dispatch({
             type: CREATE_USER,
-            user: {...user, id: nanoid(4)}
+            user: {...user}
         }) : dispatch({type: UPDATE_USER_BY_ID, user})
         dispatch(setUserSlice({
-            id: 0,
+            id: '',
             name: '',
             email: '',
             phone: ''
@@ -42,7 +42,7 @@ const UserForm = () => {
             <Container>
                 <h1 style={{textAlign:"center"}}>React Redux CRUD</h1>
                 <InputLabel htmlFor="uId"> ID : </InputLabel>
-                <Input id="uId" value={user.id} placeholder="User ID will generated auto" fullWidth style={{marginBottom:10}} disabled/>
+                <Input id="uId"  onChange={handleChange('id')} placeholder="Enter ID" value={user.id} fullWidth style={{marginBottom:10}}/>
                 <InputLabel htmlFor="uName"> Name : </InputLabel>
                 <Input id="uName" onChange={handleChange('name')} placeholder="Enter Name" value={user.name} fullWidth style={{marginBottom:10}}/>
                 <InputLabel htmlFor="uEmail"> Email : </InputLabel>
