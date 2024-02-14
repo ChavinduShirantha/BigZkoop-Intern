@@ -6,7 +6,7 @@ const users = createSlice({
         id: 0,
         name: '',
         email: '',
-        password: ''
+        phone: ''
     }],
     reducers: {
         getUsersSlice: (state, action) => {

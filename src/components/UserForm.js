@@ -33,7 +33,7 @@ const UserForm = () => {
             id: 0,
             name: '',
             email: '',
-            password: ''
+            phone: ''
         }))
     }
 
@@ -47,8 +47,8 @@ const UserForm = () => {
                 <Input id="uName" onChange={handleChange('name')} placeholder="Enter Name" value={user.name} fullWidth style={{marginBottom:10}}/>
                 <InputLabel htmlFor="uEmail"> Email : </InputLabel>
                 <Input id="uEmail" onChange={handleChange('email')} placeholder="Enter Email" value={user.email} fullWidth style={{marginBottom:10}}/>
-                <InputLabel htmlFor="uPassword"> Password : </InputLabel>
-                <Input id="uPassword" onChange={handleChange('password')} placeholder="Enter Password" value={user.password}
+                <InputLabel htmlFor="uContact"> Contact : </InputLabel>
+                <Input id="uContact" onChange={handleChange('phone')} placeholder="Enter Contact" value={user.phone}
                        fullWidth style={{marginBottom:20}}/>
                 <Button onClick={() => handleSubmit()} variant="contained" color="success"
                         endIcon={<SaveIcon/>} fullWidth>Save</Button>

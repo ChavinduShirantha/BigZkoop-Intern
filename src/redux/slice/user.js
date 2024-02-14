@@ -6,7 +6,7 @@ const user=createSlice({
         id: 0,
         name: '',
         email: '',
-        password: ''
+        phone: ''
     },
     reducers:{
         setUserSlice:(state,action)=>{

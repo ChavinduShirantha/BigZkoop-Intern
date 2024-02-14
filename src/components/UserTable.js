@@ -25,7 +25,7 @@ export default function UserTable() {
                         <TableCell align="center">ID</TableCell>
                         <TableCell align="center">Name</TableCell>
                         <TableCell align="center">Email</TableCell>
-                        <TableCell align="center">Password</TableCell>
+                        <TableCell align="center">Contact</TableCell>
                         <TableCell align="center">Edit</TableCell>
                         <TableCell align="center">Delete</TableCell>
                     </TableRow>
@@ -43,7 +43,7 @@ export default function UserTable() {
                                 {row.name}
                             </TableCell>
                             <TableCell align="center">{row.email}</TableCell>
-                            <TableCell align="center">{row.password}</TableCell>
+                            <TableCell align="center">{row.phone}</TableCell>
                             <TableCell align="center">
                                 <Button onClick={() => dispatch(setUserSlice(row))}
                                         variant="contained" startIcon={<EditIcon />}>Edit</Button>
