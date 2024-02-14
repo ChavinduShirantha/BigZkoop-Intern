@@ -49,7 +49,7 @@ export default function UserTable() {
                                         variant="contained" startIcon={<EditIcon />}>Edit</Button>
                             </TableCell>
                             <TableCell align="center">
-                                <Button onClick={() => dispatch({type: DELETE_USER_BY_ID, id: row.id})}
+                                <Button onClick={() => dispatch({type: DELETE_USER_BY_ID, id: row.id},)}
                                         variant="contained" color="error" startIcon={<DeleteIcon />}>Delete</Button>
                             </TableCell>
                         </TableRow>

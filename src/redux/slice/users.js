@@ -10,7 +10,7 @@ const users = createSlice({
     }],
     reducers: {
         getUsersSlice: (state, action) => {
-            state=action.payload
+            state = action.payload
             return state
         },
         addUserSlice: (state, action) => {
@@ -22,12 +22,12 @@ const users = createSlice({
             return state
         },
         deleteUserSlice: (state, action) => {
-            state = state.filter(i => i.id === action.payload)
+            state = state.filter(i => i.id !== action.payload)
             return state
         }
     }
 })
 
-export const {getUsersSlice,addUserSlice,editUserSlice,deleteUserSlice} = users.actions;
+export const {getUsersSlice, addUserSlice, editUserSlice, deleteUserSlice} = users.actions;
 
 export default users.reducer;

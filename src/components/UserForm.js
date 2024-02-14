@@ -40,14 +40,14 @@ const UserForm = () => {
     return (
         <>
             <Container>
-                <h1 style={{textAlign:"center"}}>User Registration Form</h1>
-                <InputLabel htmlFor="uId"> ID</InputLabel>
+                <h1 style={{textAlign:"center"}}>React Redux CRUD</h1>
+                <InputLabel htmlFor="uId"> ID : </InputLabel>
                 <Input id="uId" value={user.id} placeholder="User ID will generated auto" fullWidth style={{marginBottom:10}} disabled/>
-                <InputLabel htmlFor="uName"> Name</InputLabel>
+                <InputLabel htmlFor="uName"> Name : </InputLabel>
                 <Input id="uName" onChange={handleChange('name')} placeholder="Enter Name" value={user.name} fullWidth style={{marginBottom:10}}/>
-                <InputLabel htmlFor="uEmail"> Email</InputLabel>
+                <InputLabel htmlFor="uEmail"> Email : </InputLabel>
                 <Input id="uEmail" onChange={handleChange('email')} placeholder="Enter Email" value={user.email} fullWidth style={{marginBottom:10}}/>
-                <InputLabel htmlFor="uPassword"> Password</InputLabel>
+                <InputLabel htmlFor="uPassword"> Password : </InputLabel>
                 <Input id="uPassword" onChange={handleChange('password')} placeholder="Enter Password" value={user.password}
                        fullWidth style={{marginBottom:20}}/>
                 <Button onClick={() => handleSubmit()} variant="contained" color="success"
