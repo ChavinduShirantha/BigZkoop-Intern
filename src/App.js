@@ -10,11 +10,11 @@ function App() {
     return (
         <>
             <Provider store={store}>
-                <Grid container rowSpacing={8} style={{justifyContent:"center"}}>
-                    <Grid item xs={12} md={4} lg={6} xl={3} >
+                <Grid container rowSpacing={8} style={{justifyContent: "center"}}>
+                    <Grid item xs={12} md={4} lg={6} xl={3}>
                         <UserForm/>
                     </Grid>
-                    <Grid item xs={12} md={9} lg={12} xl={12} style={{padding:50 }}>
+                    <Grid item xs={12} md={9} lg={12} xl={12} style={{padding: 50}}>
                         <UserTable/>
                     </Grid>
                 </Grid>
